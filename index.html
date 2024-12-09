@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTZ Savings Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="ftz-wrapper">
+        <div class="ftz-container">
+            <h2 class="ftz-calc-heading">FTZ Savings Calculator</h2>
+            <div class="ftz-main">
+                <div class="top-results-container">
+                    <div class="ftz-result-card">
+                        <div class="ftz-res-value" id="ccfy_">$0.00</div>
+                        <div class="ftz-res-label">Cost of Capital</div>
+                    </div>
+                    <div class="ftz-result-card">
+                        <div class="ftz-res-value" id="scrap_">$0.00</div>
+                        <div class="ftz-res-label">Scrap</div>
+                    </div>
+                    <div class="ftz-result-card">
+                        <div class="ftz-res-value" id="tewes_">$0.00</div>
+                        <div class="ftz-res-label">Weekly Entry Savings</div>
+                    </div>
+                    <div class="ftz-result-card">
+                        <div class="ftz-res-value" id="spy_">$0.00</div>
+                        <div class="ftz-res-label">Savings Per Year</div>
+                    </div>
+                </div>
+                <div class="ftz-inp-sec">
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="feu">Number of Containers (FEU)</label>
+                        </div>
+                        <div class="ftz-inp input-group-prepend">
+                            <div class="input-group-text">#</div>
+                            <input  class="calc-input" placeholder="Number of Containers" type="text" name="" id="feu" value="100">
+                        </div> 
+                    </div>
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="nas">Number of Air Shipments</label>
+                        </div>
+                        <div class="ftz-inp input-group-prepend">
+                            <div class="input-group-text">#</div>
+                            <input  class="calc-input" placeholder="Number of Air Shipments" type="text" name="" id="nas" value="50">
+                        </div>
+                    </div>
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="ivc">Invoice Value Per Container</label>
+                        </div>
+                        <div class="ftz-inp input-group-prepend">
+                            <div class="input-group-text">$</div>
+                            <input  class="calc-input" placeholder="Invoice Value Per Container" type="text" name="" id="ivc" value="30">
+                        </div>
+                    </div>
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="ivas">Invoice Value Per Air Shipment</label>
+                        </div>
+                        <div class="ftz-inp input-group-prepend">
+                            <div class="input-group-text">$</div>
+                            <input  class="calc-input" placeholder="Invoice Value Per Air Shipment" type="text" name="" id="ivas" value="10">
+                        </div>
+                    </div>
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="cefa">Number of Customs Entries Filed Annualy</label>
+                        </div>
+                        <div class="ftz-inp input-group-prepend">
+                            <div class="input-group-text">#</div>
+                            <input  class="calc-input" placeholder="Number of Customs Entries" type="text" name="" id="cefa" value="50">
+                        </div>
+                    </div>
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="avi">Annual Value of Imports</label>
+                        </div>
+                        <div class="ftz-inp input-group-prepend">
+                            <div class="input-group-text">$</div>
+                            <input  class="calc-input" placeholder="Annual Value of Imports" type="text" name="" id="avi" value="1652000000">
+                        </div>
+                    </div>
+                    
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="drim">Average Ad Valorem Duty Rate on Import Merchandise (%)</label>
+                        </div>
+                        <div class="ftz-inp input-group-append">
+                            <input  class="calc-input" placeholder="Average Ad Valorem Duty Rate" type="text" name="" id="drim" value="11.9">
+                            <div class="input-group-text">%</div>
+                        </div>
+                    </div>
+    
+    
+    
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="abfpe">Average Broker Fee Per Entry</label>
+                        </div>
+                        <div class="ftz-inp input-group-prepend">
+                            <div class="input-group-text">$</div>
+                            <input  class="calc-input" placeholder="Average Broker Fee Per Entry" type="text" name="" id="abfpe" value="95">
+                        </div>
+                    </div>
+                    
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="nait">Number of Annual Inventory Turns</label>
+                        </div>
+                        <div class="ftz-inp input-group-prepend">
+                            <div class="input-group-text">#</div>
+                            <input  class="calc-input" placeholder="Number of Annual Inventory Turns" type="text" name="" id="nait" value="4">
+                        </div>
+                    </div>
+                    
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="pre">Percent of Re-Exports</label>
+                        </div>
+                        <div class="ftz-inp input-group-append">
+                            <input  class="calc-input" placeholder="Percent of Re-Exports" type="text" name="" id="pre" value="10">
+                            <div class="input-group-text">%</div>
+                        </div>
+                    </div>
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="psim">Percentage of Scrapped Imported Merchandise</label>
+                        </div>
+                        <div class="ftz-inp input-group-append">
+                            <input  class="calc-input" placeholder="Percentage of Scrapped Imported Merchandise" type="text" name="" id="psim" value="10">
+                            <div class="input-group-text">%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="ir">Interest Rate</label>
+                        </div>
+                        <div class="ftz-inp input-group-append">
+                            <input  class="calc-input" placeholder="Interest Rate" type="text" name="" id="ir" value="6">
+                            <div class="input-group-text">%</div>
+                        </div>
+                    </div>
+                    <div class="ftz-calc-btn-container">
+                        <button class="ftz-calc-btn" id="calculate">Calculate</button>
+                    </div>
+                    <div class="main-results">
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="adp">Annual Duty Paid</label>
+                            </div>
+                            <div class="ftz-inp">
+                            <div class="result-value" id="adp">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="mpf">Total Annual Merchandise Processing Fee (MPF)</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="ampf">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="afi">Average Foreign Inventory</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="afi">$0.00</div>
+                            </div>
+                        </div>
+
+                        <div class="ftz-calc-sub-heading">Duty Advantages</div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="ddfy">Deferred Duties ( First Year)</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="ddfy">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="ccfy">Cost of Capital ( on-going after first year)</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="ccfy">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-calc-sub-heading">Duty Elimination</div>
+                        
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="reExports">Re-Exports</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="reExports">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="scrap">Scrap</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="scrap">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-calc-sub-heading">Weekly Entry Advantages</div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="eafwe">Estimated Annual MPF with FTZ Weekly Entry</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="eafwe">$0.00</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="mpfSavingOppor">MPF Savings Opportunity</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="mpfSavingOppor">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="acbe">Annual Customs Broker Entry Fees</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="acbe">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="eabewe">Estimated Annual Broker Entry Fees with FTZ Weekly Entry</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="eabewe">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="beso">Broker Entry Savings Opportunity</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="beso">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="tewes">Total Estimate Weekly Entry Savings</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="tewes">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-calc-sub-heading">Total Estimated Savings</div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="fys">First Year Savings</label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="fys">$0.00</div>
+                            </div>
+                        </div>
+                        <div class="ftz-input-row">
+                            <div class="ftz-label">
+                                <label for="afi">Savings Per Year (after first year) </label>
+                            </div>
+                            <div class="ftz-inp">
+                                <div class="result-value" id="spy">$0.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
