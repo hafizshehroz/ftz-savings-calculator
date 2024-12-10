@@ -2,33 +2,58 @@
 
 
 
-            String.prototype.removeComma = function () {
-                var index = this.indexOf(',');
+    String.prototype.removeComma = function () {
+        var index = this.indexOf(',');
 
-                if (index !== -1) {
-                    return this.replace(/,/g, '');
-                } else {
-                    return this;
-                }
-            };
+        if (index !== -1) {
+            return this.replace(/,/g, '');
+        } else {
+            return this;
+        }
+    };
+    Number.prototype.roundToX = function(X){
+        return +(Math.round(this + "e+"+X)  + "e-"+X);
+    }
+    Number.prototype.round = function(places=0) {
+        return +(Math.round(this + "e+" + places)  + "e-" + places);
+      }
+    function e(selector){
+        return document.querySelector(selector);
+    }
 
-            document.querySelectorAll('.calc-input').forEach(function(elem){
-                elem.addEventListener('input', function(e){
-                    if(e.target.nodeName != 'SELECT'){
-                        var val = this.value.replace(/,/g, '')
-                        this.value = addCommas(val.replace(/[^0-9.e\,]/, ''));
-                    }
-                })
-                elem.dispatchEvent(new Event('input'))
-            });
+    function ifError(value){
+        return !isFinite(value) || isNaN(value) ? 0: value;
+    }
+    document.querySelectorAll('.calc-input').forEach(function(elem){
+        elem.addEventListener('input', function(e){
+            if(e.target.nodeName != 'SELECT'){
+                var val = this.value.replace(/,/g, '')
+                this.value = addCommas(val.replace(/[^0-9.e\,]/, ''));
+            }
+        })
+        elem.dispatchEvent(new Event('input'))
+    });
 	
-        // document.querySelectorAll('.calc-input').forEach((element,index)=>{
-        //     // console.log(element)
-        //     element.addEventListener('input', calculate);
-        // })
+    document.querySelectorAll('#drim,#avi').forEach((element,index)=>{
+        element.addEventListener('input', function(event){
+            let id = event.target.id,
+            avi = +e('#avi').value.removeComma(),
+            drim = +e('#drim').value.removeComma()/100,
+            adp;
+            if(id=='drim'){
+                adp = avi*drim;
+                e('#adp').innerText = ('$'+addCommas(adp.toFixed(2)));
+            }else if(id=='avi'){
+                adp = +e('#adp').innerHTML.removeComma().replace('$','');
+                drim = adp/avi;
+                e('#drim').value = drim.round(5);
+            }
+        });
+    });
+    document.querySelector('#drim').dispatchEvent(new Event("input"))
         
         document.querySelector('#calculate').addEventListener('click', calculate);
-        document.querySelector('#calculate').dispatchEvent(new Event("click"))
+        // document.querySelector('#calculate').dispatchEvent(new Event("click"))
         
 		
 		// document.querySelectorAll('.calc-input').forEach(function(element){
@@ -39,12 +64,8 @@
 		// })
 
 
-		function e(selector){
-            return document.querySelector(selector);
-        }
-
+		
 		function calculate(){
-            console.log(123)
 			let feu = +e('#feu').value.removeComma(),
 			nas = +e('#nas').value.removeComma(),
 			ivc = +e('#ivc').value.removeComma(),
@@ -61,14 +82,14 @@
             
 			// mpf = +e('#mpf').value.removeComma(),
 			// afi = +e('#afi').value.removeComma(),
-            adp = avi*(drim/100),
+            adp = +e('#adp').innerHTML.removeComma().replace('$',''),
             actualMPF = avi*0.003464,
             annualMPF = 634.62*cefa,
             maxMPF = 634.62,
             WeeksIn = 52,
             FTZentry = 500,
             ampf = Math.min(actualMPF,annualMPF),
-            afi  = avi/nait,
+            afi  = ifError(avi/nait),
             ddfy = afi*(drim/100),
             ccfy = (ddfy/100)*ir,
             reExports = adp*(pre/100),
@@ -82,7 +103,7 @@
             fys = ddfy+scrap+tewes+reExports,
             spy = ccfy+scrap+tewes+reExports;
             // console.log(adp, actualMPF, annualMPF, ampf ,afi,ddfy ,ccfy ,reExports ,scrap)
-            console.log(eafwe, mpfSavingOppor, acbe, eabewe ,beso,tewes ,fys ,spy )
+            // console.log(eafwe, mpfSavingOppor, acbe, eabewe ,beso,tewes ,fys ,spy )
             ;
 			// console.log(combinedIncome,downPayment,ccPayments,mortgageRate,mortgageTerm,propertyTaxes,hazardInsurance),
 			

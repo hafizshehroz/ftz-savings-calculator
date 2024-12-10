@@ -9,6 +9,9 @@
 <body>
     <div class="ftz-wrapper">
         <div class="ftz-container">
+            <div class="ftz-calc-logo-container">
+                <img src="logo.png" alt="">
+            </div>
             <h2 class="ftz-calc-heading">FTZ Savings Calculator</h2>
             <div class="ftz-main">
                 <div class="top-results-container">
@@ -81,10 +84,17 @@
                         </div>
                         <div class="ftz-inp input-group-prepend">
                             <div class="input-group-text">$</div>
-                            <input  class="calc-input" placeholder="Annual Value of Imports" type="text" name="" id="avi" value="1652000000">
+                            <input  class="calc-input" placeholder="Annual Value of Imports" type="text" name="" id="avi" value="69316003">
                         </div>
                     </div>
-                    
+                    <div class="ftz-input-row">
+                        <div class="ftz-label">
+                            <label for="adp">Annual Duty Paid</label>
+                        </div>
+                        <div class="ftz-inp">
+                        <div class="result-value" id="adp">$0.00</div>
+                        </div>
+                    </div>
                     <div class="ftz-input-row">
                         <div class="ftz-label">
                             <label for="drim">Average Ad Valorem Duty Rate on Import Merchandise (%)</label>
@@ -126,6 +136,7 @@
                             <div class="input-group-text">%</div>
                         </div>
                     </div>
+                    
                     <div class="ftz-input-row">
                         <div class="ftz-label">
                             <label for="psim">Percentage of Scrapped Imported Merchandise</label>
@@ -149,14 +160,7 @@
                         <button class="ftz-calc-btn" id="calculate">Calculate</button>
                     </div>
                     <div class="main-results">
-                        <div class="ftz-input-row">
-                            <div class="ftz-label">
-                                <label for="adp">Annual Duty Paid</label>
-                            </div>
-                            <div class="ftz-inp">
-                            <div class="result-value" id="adp">$0.00</div>
-                            </div>
-                        </div>
+                        
                         <div class="ftz-input-row">
                             <div class="ftz-label">
                                 <label for="mpf">Total Annual Merchandise Processing Fee (MPF)</label>
