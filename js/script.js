@@ -45,7 +45,7 @@
                 e('#adp').innerText = ('$'+addCommas(adp.toFixed(2)));
             }else if(id=='avi'){
                 adp = +e('#adp').innerHTML.removeComma().replace('$','');
-                drim = adp/avi;
+                drim = ifError(adp/avi);
                 e('#drim').value = drim.round(5);
             }
         });
